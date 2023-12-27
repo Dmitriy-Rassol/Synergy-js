@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/myHomeWorkCSS.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function loadNewScript(src, callback) {
+        let script = document.createElement('script');
+        script.src = src;
+
+        script.onload = () => callback(script);
+        script.onerror = () => callback(new Error(`Script download error! ${src}`));
+        document.head.append(script);
+      }
+
+      loadNewScript("lesson9.js", function() {
+        myCreateElement();
+      })
+    </script>
+  </body>
+</html>
