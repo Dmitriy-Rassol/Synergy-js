@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/myHomeWorkCSS.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function loadScript(src, undefine) {
+        return new Promise(function (resolve, reject) {
+          var script = document.createElement("script");
+          script.src = src;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      }
+      Promise.all([
+        loadScript("../lesson9.js").then(function () {
+          return myCreateElement();
+        }),
+        loadScript("lesson10.1.js"),
+        loadScript("lesson10.2.js"),
+      ])
+        .then(function () {
+          console.log("Все скрипты успешно загружены.");
+        })
+        .catch(function (error) {
+          console.error("Ошибка при загрузке скриптов:", error);
+        });
+    </script>
+  </body>
+</html>
