@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cookie</h1>
+    <script>
+        // Устанавливаем дату истечения срока действия куки на 1 год вперед
+        var expirationDate = new Date();
+        expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+        // Устанавливаем значение куки
+        document.cookie = "myCookie=значение куки; expires=" + expirationDate.toUTCString();
+        // Проверяем, успешно ли установлено значение куки
+        if (document.cookie) {
+            alert("Файл cookie успешно создан!");
+        } else {
+            alert("Не удалось создать файл cookie.");
+        }
+    </script>
+</body>
+</html>
